@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 @identityServiceUrl = http://localhost:5002
-@accessToken = xxxxxxxxxxxxxxxxxx
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YzYxMzM2MGYwMTI0YjQ5YjFiZjU1Zjc5YmY0YWUwNiIsInVuaXF1ZV9uYW1lIjoiNmM2MTMzNjBmMDEyNGI0OWIxYmY1NWY3OWJmNGFlMDYiLCJqdGkiOiI3ZDBlYmQ5My1jNjIwLTQ1NjQtOTQ1NS1kMzk2Y2RiY2E1MDkiLCJpYXQiOiIxNTY4Mjk4MTE3NjMyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoidXNlciIsIm5iZiI6MTU2ODI5ODExNywiZXhwIjoxNTY4Mjk5OTE3LCJpc3MiOiJkc2hvcC1pZGVudGl0eS1zZXJ2aWNlIn0.WF2I-n4nd0KeA_XTw_LZVKu7nKMmDdN-g8C_dxOr_Rg
 @refreshToken = xxxxxxxxxxxxxxxxxx
 @operationId = xxxxxxxxxxxxxxxxxx
 @productId = xxxxxxxxxxxxxxxxxx
@@ -89,7 +89,7 @@ POST {{identityServiceUrl}}/sign-up
 content-type: application/json
 
 {
-	"email": "dshop-user@mailinator.com",
+	"email": "dshop-user2@mailinator.com",
 	"password": "secret",
 	"role": "user"
 }
@@ -99,7 +99,7 @@ POST {{identityServiceUrl}}/sign-in
 content-type: application/json
 
 {
-	"email": "dshop-user@mailinator.com",
+	"email": "dshop-user2@mailinator.com",
 	"password": "secret"
 }
 
@@ -205,3 +205,25 @@ content-type: application/json
 
 {
 }
+
+### create discount 
+POST {{apiUrl}}/discounts
+Content-Type: application/json
+
+{
+    "customerId": "6c613360-f012-4b49-b1bf-55f79bf4ae06",
+    "code": "PROMO3",
+    "percentage": 25
+}
+
+###
+GET {{apiUrl}}/discounts?customerId=6c613360-f012-4b49-b1bf-55f79bf4ae06
+
+###
+GET {{apiUrl}}/discounts/9ca8c33a-f4ee-4b39-89e0-6c0afe57cdfa
+
+###
+GET http://localhost:5010/discounts?customerId=6c613360-f012-4b49-b1bf-55f79bf4ae06
+
+###
+GET http://localhost:5010/discounts/9ca8c33a-f4ee-4b39-89e0-6c0afe57cdfa

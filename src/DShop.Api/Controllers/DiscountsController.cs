@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DShop.Api.Messages.Commands.Discounts;
+using DShop.Api.Services;
 using DShop.Common.Mvc;
 using DShop.Common.RabbitMq;
 using Microsoft.AspNetCore.Authorization;
@@ -11,9 +14,20 @@ namespace DShop.Api.Controllers
     [AllowAnonymous]
     public class DiscountsController : BaseController
     {
-        public DiscountsController(IBusPublisher busPublisher, ITracer tracer) : base(busPublisher, tracer)
+        private readonly IDiscountsService _discountsService;
+
+        public DiscountsController(IBusPublisher busPublisher, IDiscountsService discountsService,  ITracer tracer) : base(busPublisher, tracer)
         {
+            _discountsService = discountsService;
         }
+
+        [HttpGet]
+        public async Task<ActionResult<object>> Get(Guid customerId)
+            => await _discountsService.FindAsync(customerId);
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<object>> GetDetails(Guid id)
+            => Result(await _discountsService.GetAsync(id));
 
         [HttpPost]
         public async Task<IActionResult> Post(CreateDiscount command)
