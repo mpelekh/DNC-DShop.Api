@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 @identityServiceUrl = http://localhost:5002
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YzYxMzM2MGYwMTI0YjQ5YjFiZjU1Zjc5YmY0YWUwNiIsInVuaXF1ZV9uYW1lIjoiNmM2MTMzNjBmMDEyNGI0OWIxYmY1NWY3OWJmNGFlMDYiLCJqdGkiOiI3ZDBlYmQ5My1jNjIwLTQ1NjQtOTQ1NS1kMzk2Y2RiY2E1MDkiLCJpYXQiOiIxNTY4Mjk4MTE3NjMyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoidXNlciIsIm5iZiI6MTU2ODI5ODExNywiZXhwIjoxNTY4Mjk5OTE3LCJpc3MiOiJkc2hvcC1pZGVudGl0eS1zZXJ2aWNlIn0.WF2I-n4nd0KeA_XTw_LZVKu7nKMmDdN-g8C_dxOr_Rg
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYzZjYWVlYTc1OGU0YmUyYWY0OGNhZThmYWZkOGNlNyIsInVuaXF1ZV9uYW1lIjoiY2M2Y2FlZWE3NThlNGJlMmFmNDhjYWU4ZmFmZDhjZTciLCJqdGkiOiJhY2Y2NTBmOS1kZWE0LTRlZWUtYmRhZS00ODlkZTdiMjFiY2QiLCJpYXQiOiIxNTY5MzM5MTI0OTYwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoidXNlciIsIm5iZiI6MTU2OTMzOTEyNCwiZXhwIjoxNTY5MzQwOTI0LCJpc3MiOiJkc2hvcC1pZGVudGl0eS1zZXJ2aWNlIn0.Njk5wtzRO9Kd3S3BQQmx0lfnYRi5AixaRfoUUcP7VeE
 @refreshToken = xxxxxxxxxxxxxxxxxx
 @operationId = xxxxxxxxxxxxxxxxxx
 @productId = xxxxxxxxxxxxxxxxxx
@@ -123,7 +123,7 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-	"productId": "{{productId}}",
+	"productId": "beb214a4-f177-4f8c-b701-72f2744dfeec",
 	"quantity": 1
 }
 
@@ -152,11 +152,11 @@ GET {{apiUrl}}/orders
 authorization: Bearer {{accessToken}}
 
 ### Get your order details by updating @orderId parameter above
-GET {{apiUrl}}/orders/{{orderId}}
+GET {{apiUrl}}/orders/715783a3-1f64-4b51-84a9-970ee320ca23
 authorization: Bearer {{accessToken}}
 
 ### Complete an order (only works for new orders with status "created")
-POST {{apiUrl}}/orders/{{orderId}}/complete
+POST {{apiUrl}}/orders/715783a3-1f64-4b51-84a9-970ee320ca23/complete
 authorization: Bearer {{accessToken}}
 content-type: application/json
 
